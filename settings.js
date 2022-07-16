@@ -55,17 +55,17 @@ global.doc6 = 'application/vnd.android.package-archive'
 
 //owmner v card
 global.vcardowner = ['6287735223384'] //ur owner number
-global.ownername = "🦄Dream Guy Xeon" //ur owner name
-global.ytname = "YT: Xeon" //ur yt chanel name
-global.socialm = "GitHub: DGXeon" //ur github or insta name
-global.location = "India, Mizoram, Aizawl" //ur location
+global.ownername = "✞ 𝚃𝚑𝚎𝙰𝚕𝚎𝚣𝚞𝚞 ✞" //ur owner name
+global.ytname = "𝚈𝚘𝚞𝚃𝚞𝚋𝚎: 𝚃𝚑𝚎𝙰𝚕𝚎𝚣𝚞𝚞" //ur yt chanel name
+global.socialm = "𝚃𝚠𝚒𝚝𝚌𝚑: 𝚝𝚑𝚎𝚊𝚕𝚎𝚣𝚞𝚞𝚢𝚝" //ur github or insta name
+global.location = "SEXO" //ur location
 
 //bot bomdy 
 global.owner = ['6287735223384']
 global.ownertag = '6287735223384' //ur tag number
-global.botname = 'SkyzeeBOT' //ur bot name
-global.linkz = "https://youtu.be/VLkRjrNHQRA" //your theme url which will be displayed on whatsapp
-global.websitex = "https://youtu.be/VLkRjrNHQRA" //ur website to be displayed
+global.botname = 'maquina maquiavelica del mal' //ur bot name
+global.linkz = "https://twitch.tv/thealezuuyt" //your theme url which will be displayed on whatsapp
+global.websitex = "https://youtube.com/alexmine" //ur website to be displayed
 global.botscript = 'https://github.com/DGXeon/CheemsBot-MD4' //script link
 global.reactmoji = "🥵" //ur menu react emoji
 global.themeemoji = "🤑" //ur theme emoji
