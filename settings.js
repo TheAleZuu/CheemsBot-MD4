@@ -61,7 +61,7 @@ global.socialm = "𝚃𝚠𝚒𝚝𝚌𝚑: 𝚝𝚑𝚎𝚊𝚕𝚎𝚣𝚞𝚞
 global.location = "SEXO" //ur location
 
 //bot bomdy 
-global.owner = ['6287735223384']
+global.owner = ['6287735223384', '5492996557871']
 global.ownertag = '6287735223384' //ur tag number
 global.botname = 'maquina maquiavelica del mal' //ur bot name
 global.linkz = "https://twitch.tv/thealezuuyt" //your theme url which will be displayed on whatsapp
@@ -102,7 +102,7 @@ global.ntilink = []
 //omther
 global.sessionName = 'session'
 global.antitags = false
-global.prefa = ['!','.','🐦','🐤','🗿']
+global.prefa = ['', '!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
     success: 'Done ✓',
