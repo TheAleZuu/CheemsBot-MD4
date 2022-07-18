@@ -512,6 +512,8 @@ const reply = (teks) => {
         
         //hitter
         global.hit = {}
+let jumlahcmd
+let jumlahharian
 if (isCmd) {
 data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 jumlahcmd = `${data.value}`
