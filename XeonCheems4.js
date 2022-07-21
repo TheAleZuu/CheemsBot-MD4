@@ -233,7 +233,7 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
         const c = args.join(' ')
         const isCmd = body.startsWith(prefix)
         const q = args.join(' ')
-        const txt = mek.message.conversation
+        const text = mek.message.conversation
         const pushname = m.pushName || "No Name"
         const botNumber = await XeonBotInc.decodeJid(XeonBotInc.user.id)
         const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
@@ -512,8 +512,8 @@ const reply = (teks) => {
         
         //hitter
         global.hit = {}
-let jumlahcmd
 let jumlahharian
+let jumlahcmd
 if (isCmd) {
 data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 jumlahcmd = `${data.value}`
