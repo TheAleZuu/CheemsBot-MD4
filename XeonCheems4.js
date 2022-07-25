@@ -8827,11 +8827,10 @@ XeonBotInc.sendMessage(from, { react: { text: `${global.reactmoji}`, key: m.key 
                         /////////XeonBotInc.send5ButMsg(m.chat, menulist, global.botname, btn)
                         } else if (setbot.templateDocument) {
                         let buttonmenu = [
-        	{ urlButton: { displayText: `YouTube 🍒`, url : `${websitex}` } },
-            { urlButton: { displayText: `Script 🍜`, url: `${botscript}` } },
-            { quickReplyButton: { displayText: `All Menu 🍱`, id: 'allmenu'} },
-            { quickReplyButton: { displayText: `List Menu 🍢`, id: 'command'} },
-            { quickReplyButton: { displayText: `Owner 🤣`, id: 'owner'} }
+            { urlButton: { displayText: `${botname} ★ 𝑺𝑪𝑹𝑰𝑷𝑻`, url: `${botscript}` } },
+            { quickReplyButton: { displayText: `► 𝐌𝐄𝐍𝐔 𝐀𝐋𝐋 ♠`, id: `${prefix}allmenu`} },
+            { quickReplyButton: { displayText: `► 𝐌𝐄𝐍𝐔 𝐎𝐏𝐓𝐈𝐎𝐍𝐒 ♠`, id: `${prefix}command`} },
+            { quickReplyButton: { displayText: `✞ 𝑻𝒉𝒆𝑨𝒍𝒆𝒛𝒖𝒖 ✞`, id: `${prefix}owner`} }
         	]
         	XeonBotInc.sendMessage(m.chat, { caption: menulist, document: fs.readFileSync('./XeonMedia/theme/cheems.xlsx'), mimetype: `${docs}`, fileName: `${ownername}`, templateButtons: buttonmenu, footer: `${botname}`, mentionedJid: [m.sender] })
                         }
