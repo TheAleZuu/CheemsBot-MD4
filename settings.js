@@ -63,7 +63,7 @@ global.location = "𝒆𝒏 𝒍𝒂 𝒓𝒆 𝒄𝒐𝒏𝒄𝒉𝒂 𝒅𝒆 
 //bot bomdy 
 global.owner = ['5492996557871']
 global.ownertag = '6287735223384' //ur tag number
-global.botname = '𝙎𝙠𝙮𝙯𝙚𝙚𝓑𝓞𝓣' //ur bot name
+global.botname = '𝙎𝙠𝙮𝙯𝙚𝙚乃ㄖㄒ' //ur bot name
 global.linkz = "https://twitch.tv/thealezuuyt" //your theme url which will be displayed on whatsapp
 global.websitex = "https://youtube.com/alexmine" //ur website to be displayed
 global.botscript = 'https://github.com/DGXeon/CheemsBot-MD4' //script link
@@ -102,7 +102,7 @@ global.ntilink = []
 //omther
 global.sessionName = 'session'
 global.antitags = false
-global.prefa = "."
+global.prefa = "#"
 global.sp = '⭔'
 global.mess = {
     success: '𝙷𝙴𝙲𝙷𝙾 ✓',
