@@ -494,7 +494,68 @@ message: {
 }
 } 
 }
-	
+	//══════════[ Leveling and Rpg ]══════════//
+
+let { isLimit, limitAdd, getLimit, giveLimit, addBalance, kurangBalance, getBalance} = require("./lib/limit");
+let { checkPetualangUser, addInventori, addBesi, sellBesi, getBesi, addDm, sellDm, getDm, addEmas, sellEmas, getEmas, addFish, sellFish, getFish } = require("./lib/rpgfunction");
+let { addLevelingId, addLevelingLevel, addLevelingXp, getLevelingId, getLevelingLevel, getLevelingXp } = require("./lib/lvlfunction");
+
+    //══════════[ Rank Function ]══════════//
+
+        const levelRole = getLevelingLevel(m.sender)
+                     var role = 'bronz'
+         if (levelRole <= 3) {
+             role = 'Copper'
+         } else if (levelRole <= 5) {
+             role = 'Iron'
+         } else if (levelRole <= 7) {
+             role = 'Silver'
+         } else if (levelRole <= 10) {
+             role = 'Gold'
+         } else if (levelRole <= 12) {
+             role = 'Platinum'
+         } else if (levelRole <= 15) {
+             role = 'Mithril'
+         } else if (levelRole <= 18) {
+             role = 'Orichalcum'
+         } else if (levelRole <= 25) {
+             role = 'Adamantite'
+         }
+
+
+
+    //══════════[ Leveling Function ]══════════//
+    
+            if (m.isGroup) {
+            const currentLevel = getLevelingLevel(m.sender)
+            const checkId = getLevelingId(m.sender)
+            try {
+                if (currentLevel === undefined && checkId === undefined) addLevelingId(m.sender)
+                const amountXp = Math.floor(Math.random() * 10) + 100
+                const requiredXp = 5000 * (Math.pow(2, currentLevel) - 1)
+                var getLevel = getLevelingLevel(m.sender)
+                addLevelingXp(m.sender, amountXp)
+                if (requiredXp <= getLevelingXp(m.sender)) {
+                addLevelingLevel(m.sender, 1)   
+                var lvlup = (`
+╭───「 *LEVEL UP!!* 」
+│
+├ _${pushname}_
+├ 📱 𝗡𝘂𝗺𝗯𝗲𝗿 : ${m.sender.split('@')[0]}
+├ 🏅 𝗥𝗮𝗻𝗸 : ${role}
+├ 🔖 𝗫𝗣 : ${getLevelingXp(m.sender)}
+├ 💠 𝗟𝗲𝘃𝗲𝗹  : ${getLevelingLevel(m.sender)}
+│
+╰───「 *LEVEL UP!!*`)
+          XeonBotInc.sendText(from, lvlup, m)
+
+                }
+            } catch (err) {
+                console.error(err)
+            }
+        }        
+        
+
 	//group target \\
 const reply = (teks) => {
            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/theme/cheemspic.jpg`),"sourceUrl": `${linkz}`}}}, { quoted: m})
@@ -1598,6 +1659,32 @@ if (isBanChat) return reply(mess.banChat)
                 reply(`${m.pushName} Has Gone Afk/Offline${text ? ': ' + text : ''}`)
             }
             break	
+    case 'level':
+    case 'xp':
+                    if (!m.isGroup) return reply(mess.group)
+                    const userLevel = getLevelingLevel(m.sender)
+                    const userXp = getLevelingXp(m.sender)
+                    if (userLevel === undefined && userXp === undefined) return reply(ind.lvlnul())
+                    const requiredXp = 5000 * (Math.pow(2, userLevel) - 1)
+                    resul = `◪ *ʟᴇᴠᴇʟ*\n  ├─ ► 𝗡𝗮𝗺𝗲 : ${pushname}\n  ├─ ► 𝗥𝗮𝗻𝗸 : ${role}\n  ├─ ► 𝗫𝗣 : ${userXp}/${requiredXp}\n  └─ ► 𝗟𝗲𝘃𝗲𝗹 : ${userLevel}\n`
+                    XeonBotInc.sendText(from, resul, m)
+                    .catch(async (err) => {
+                    console.error(err)
+                    await reply(`Error!\n${err}`)
+                    })
+    break
+                    // case 'profile':
+                    // if (!isGroup) return reply(mess.group)
+                    // DogeXeonOP.updatePresence(from, Presence.composing)
+                    // try {
+                    // ppimg = await DogeXeonOP.getProfilePicture(`${m.sender.split('@')[0]}@s.whatsapp.net`)
+                    // } catch {
+                    // ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                    // }
+                    // profile = `╭─「 *💖ʏᴏᴜʀ ᴘʀᴏꜰɪʟᴇ💖* 」\n│• 𝗡𝗮𝗺𝗲 : ${pushname}\n│• 𝗡𝘂𝗺𝗯𝗲𝗿 : +${m.sender.split("@")[0]}\n│• 𝗕𝗶𝗼 : ${bio_user}\n│• 𝗫𝗣 : ${getLevelingXp(m.sender)}\n│• 𝗟𝗲𝘃𝗲𝗹 : ${getLevelingLevel(m.sender)}\n│• 𝗥𝗮𝗻𝗸 : ${role}\n│• 𝗣𝗠 : wa.me/${m.sender.split("@")[0]}\n╰──────────────────`
+                    // buffer = await getBuffer(ppimg)
+                    // DogeXeonOP.sendMessage(from, buffer, image, {quoted: mek, caption: profile})
+                    // break
         case 'ttc': case 'ttt': case 'tictactoe': {
         	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -2406,6 +2493,7 @@ if (isBanChat) return reply(mess.banChat)
                 reply(mess.success)
                 }
                 break
+
            case 'setgrouppp': case 'setgruppp': case 'setgcpp': {
            	if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
@@ -3443,7 +3531,9 @@ break
 case 'listgc': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
+let getGroups = await XeonBotInc.groupFetchAllParticipating()
+let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
+let anu = groups.map(v => v.id)
 let teks = `     「 Group Chat 」\n\nThere are ${anu.length} users using bot in group chat`
 for (let i of anu) {
  let metadata = await XeonBotInc.groupMetadata(i)
@@ -8832,7 +8922,7 @@ reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, 
 // XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
 // }
 // break
-case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
+case 'alive': case 'panel': case 'list': case 'menu': case 'help': {
 		if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 XeonBotInc.sendMessage(from, { react: { text: `${global.reactmoji}`, key: m.key }})
@@ -9969,6 +10059,18 @@ await XeonBotInc.send5ButImg(from, `╔═══════✪「 MAKER 」
 ╠ ${prefix}classic
 ╚═════════════✪` + '' + ' ', `${botname}`,unicorn, [{"urlButton": {"displayText": "YouTube 📍","url": `${websitex}`}},{"urlButton": {"displayText": "Script🔖","url": `${botscript}`}},{"quickReplyButton": {"displayText": "Donate 🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner 👤","id": 'owner'}}] )
 break
+
+case 'levelingmenu':
+var unicorn = await getBuffer(picak+'Maker Menu')
+menu =
+`*「 LEVELING MENU 」*
+
+ ${prefix}profile
+ ${prefix}level`
+
+await XeonBotInc.send5ButImg(from, menu, `${botname}`,unicorn, [{"urlButton": {"displayText": "YouTube 📍","url": `${websitex}`}},{"urlButton": {"displayText": "Script🔖","url": `${botscript}`}},{"quickReplyButton": {"displayText": "Donate 🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "Owner 👤","id": 'owner'}}] )
+break
+
 case 'downloadmenu':
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
