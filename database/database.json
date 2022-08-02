@@ -1,4 +1,12 @@
 {
+<<<<<<< HEAD
+  "users": {},
+  "chats": {},
+  "database": {},
+  "game": {},
+  "settings": {},
+  "others": {},
+=======
   "users": {
     "5492996581463@s.whatsapp.net": {
       "afkTime": -1,
@@ -179,5 +187,6 @@
   "others": {
     "vote": []
   },
+>>>>>>> dee326019b1e41df08e068d0cfdab5b59d08e1ab
   "sticker": {}
 }
